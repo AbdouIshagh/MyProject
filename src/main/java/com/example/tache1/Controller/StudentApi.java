@@ -44,12 +44,14 @@ public class StudentApi {
     public Student findById(@PathVariable Long id) {
         return studentImplement.findById(id);
     }
+
     @GetMapping("/find-address-By-id/{id}")
     public Address findAddById(@PathVariable Long id) {
         return studentImplement.findAddressById(id);
     }
+
     @GetMapping("/testt")
-    public List<studentDto>DtoTest(){
+    public List<studentDto> DtoTest() {
         return studentImplement.DtoTest();
     }
 
@@ -58,6 +60,9 @@ public class StudentApi {
         return studentImplement.findAllAddresses();
     }
 
-
+   @PutMapping("/update-Address/{id}")
+    public Address UpdateAddress(@PathVariable Long id, @RequestBody Address address) {
+       return studentImplement.UpdateAddress(id, address);
+    }
 
 }

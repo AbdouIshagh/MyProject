@@ -17,6 +17,7 @@ public interface StudentRep {
     Student affectAddresses(Long id, List<Long> ida);
     Long totalSutdents();
     Address updateAddress(Long id, Long zipcod);
+    Address UpdateAddress(Long id,Address address);
 
 
 }

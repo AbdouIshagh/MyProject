@@ -86,6 +86,16 @@ public class StudentImplement implements StudentRep {
         return addressRepository.save(address);
     }
 
+    @Override
+    public Address UpdateAddress(Long id, Address address1) {
+        Address address=addressRepository.findById(id).get();
+        address.setCountry(address1.getCountry());
+        address.setCity(address1.getCity());
+        address.setZipCode(address1.getZipCode());
+        return addressRepository.save(address);
+
+    }
+
     public List<studentDto> DtoTest() {
         return studentRepository.findAll()
                 .stream()
