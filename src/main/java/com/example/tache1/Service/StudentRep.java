@@ -12,12 +12,13 @@ public interface StudentRep {
     List<Address> findAllAddresses();
     void deleteStudentById(Long id);
     void deleteAddressById(Long id);
-    Student findById(Long id);
+    Student findStudentById(Long id);
     Address findAddressById(Long id);
     Student affectAddresses(Long id, List<Long> ida);
     Long totalSutdents();
     Address updateAddress(Long id, Long zipcod);
     Address UpdateAddress(Long id,Address address);
+
 
 
 }

@@ -52,7 +52,7 @@ public class StudentImplement implements StudentRep {
     }
 
     @Override
-    public Student findById(Long id) {
+    public Student findStudentById(Long id) {
         return studentRepository.findById(id).get();
     }
 
@@ -88,7 +88,7 @@ public class StudentImplement implements StudentRep {
 
     @Override
     public Address UpdateAddress(Long id, Address address1) {
-        Address address=addressRepository.findById(id).get();
+        Address address = addressRepository.findById(id).get();
         address.setCountry(address1.getCountry());
         address.setCity(address1.getCity());
         address.setZipCode(address1.getZipCode());
@@ -96,19 +96,29 @@ public class StudentImplement implements StudentRep {
 
     }
 
+    public studentDto findStudentByIdDto(Long id) {
+        Student student1 = studentRepository.findById(id).get();
+        studentDto studentDto;
+        studentDto=studentDtoSet(student1);
+        return studentDto;
+
+    }
+
+
     public List<studentDto> DtoTest() {
         return studentRepository.findAll()
                 .stream()
-                .map(this::convertOdTo)
+                .map(this::studentDtoSet)
                 .collect(Collectors.toList());
 
     }
 
-    private studentDto convertOdTo(Student student) {
+    private studentDto studentDtoSet(Student student) {
         studentDto studentDto = new studentDto();
+        studentDto.setId(student.getId());
         studentDto.setFirstName(student.getFirstName());
-        studentDto.setCountry(student.getAddressList().stream().map(Address::getCountry).collect(Collectors.toList()));
-        studentDto.setCity(student.getAddressList().stream().map(Address::getCity).collect(Collectors.toList()));
+        studentDto.setLastName(student.getLastName());
+        studentDto.setDateOfBirth(student.getDateOfBirth());
         return studentDto;
     }
 

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +14,6 @@ import java.util.List;
 public class studentDto {
     private Long id;
     private String firstName;
-    private List<String> country;
-    private List<String>  city;
+    private String lastName;
+    private LocalDate dateOfBirth;
 }

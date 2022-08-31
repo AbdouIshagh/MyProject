@@ -1,6 +1,7 @@
 package com.example.tache1.Repository;
 
 import com.example.tache1.Model.Address;
+import com.example.tache1.Model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
