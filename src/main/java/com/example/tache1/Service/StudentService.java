@@ -12,14 +12,16 @@ public interface StudentService {
 
     List<Student> STUDENT_LIST();
 
-    Student update(Long id);
+    Student update(Long id,Student student);
 
     void deleteStudent(Long id);
-    Student saveAddress(Student student);
+    Address saveAddress(Address address);
 
     List<Address> ADDRESS_LIST();
 
-    Address updateAddress(Address address);
+    Address updateAddress(Long id,Address address);
 
     void deleteAddress(Long id);
+
+    Student affectSaddressToStudent(Long id ,List<Long>idAdd);
 }
