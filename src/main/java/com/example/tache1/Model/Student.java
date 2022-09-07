@@ -14,17 +14,18 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-
+@Table(name = "student")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_seq")
-    @SequenceGenerator(name = "student_seq",sequenceName = "student_seq",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
-    @OneToMany(fetch = FetchType.EAGER )
-    List<Address>addressList;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "student_address",joinColumns = @JoinColumn(name = "ids"),
+            inverseJoinColumns = @JoinColumn(name = "ida"))
+    List<Address> addressList;
 
 
 }
